@@ -66,6 +66,4 @@ function numberToText($number){
         }
     }
 
-    print(numberToText(50005)."\n")
-
 ?>
