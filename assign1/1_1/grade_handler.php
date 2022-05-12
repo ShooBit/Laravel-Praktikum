@@ -4,8 +4,6 @@ function calcGrade($percentage){
         return 1.0;
     }elseif($percentage>=90 and $percentage<=94){
         return 1.3;
-    }elseif($percentage>=90 and $percentage<=94){
-        return 1.7;
     }elseif($percentage>=85 and $percentage<=89){
         return 1.7;
     }elseif($percentage>=80 and $percentage<=84){
