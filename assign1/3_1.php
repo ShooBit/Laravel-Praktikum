@@ -10,11 +10,9 @@ function fun($p1,$p2){
     }else{
         $resulting_string = array_shift($p1) . " " . array_shift($p2);
         $resulted_array = fun($p1, $p2);
-        print_r($resulted_array);
         array_unshift($resulted_array, $resulting_string);
         return $resulted_array;
     }
 }
 $result=fun($param1,$param2);
-print_r($result)
 ?>
