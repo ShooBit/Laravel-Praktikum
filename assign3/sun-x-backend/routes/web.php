@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('add-researcher',[ResearcherController::class, 'index'])->name('add-researcher');
+Route::get('add-researcher',[ResearcherController::class, 'add'])->name('add-researcher');
+Route::get('update-researcher',[ResearcherController::class, 'update'])->name('update-researcher');
 Route::post('store-researcher',[ResearcherController::class, 'store']);
 Route::get('list-researchers',[ResearcherController::class, 'listResearchers']);
+Route::delete('delete-researcher', [ResearcherController::class, 'delete'])->name('delete-researcher');

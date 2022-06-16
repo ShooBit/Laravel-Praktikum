@@ -25,10 +25,21 @@
 
     @foreach($researchers as $researcher)
     <tr>    
+      <td><img height="100px" src="{{url('/images/'.$researcher->picture_path)}}"/></td>
       <td>{{$researcher->login_id}}</td>
       <td>{{$researcher->picture_path}}</td>
       <td>{{$researcher->name}}</td>
       <td>{{$researcher->password}}</td>
+      <td>
+      <form action ="{{ route('delete-researcher', ['id'=>$researcher->id]) }}" method="post">
+        <input class="btn btn-danger" type="submit" value="Delete" />
+          @method('delete')
+          @csrf
+      </form>
+      </td>
+      <td>
+      <a type="button" class="btn btn-primary" href="{{ route('update-researcher', ['id'=>$researcher->id]) }}">Update Researcher</a>
+    </td>
     </tr>
 @endforeach
 </table>  
