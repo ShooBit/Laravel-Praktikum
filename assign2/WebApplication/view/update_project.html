@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web form</title>
+</head>
+
+<body>
+  <h2>New Project</h2>
+  <form action="../model/update_project.php" method="post" target="_self">
+    <label for="title">Title</label>
+    <input type="text" id="titleId" name="title" value=<?php echo $_GET["title"]?>><br>
+    <label for="date">Date</label>
+    <input type="date" id="dateId" name="date" value=<?php echo $_GET["date"]?>><br>
+    <label for="description">Description</label>
+    <input type="text" id="descriptionId" name="description" value=<?php echo $_GET["description"]?>><br>
+    <input type="hidden" name="idproject" value=<?php echo $_GET["idproject"]?> />
+    <input type="submit" value="submit">
+    
+  </form>
+
+</body>
+
+</html>

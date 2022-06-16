@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Web form</title>
+</head>
+
+<body>
+  <h2>New researcher</h2>
+  <form action="../model/update_researcher.php" method="post" target="_self">
+    <label for="name">name</label>
+    <input type="text" id="nameId" name="name" value=<?php echo $_GET["name"]?>><br>
+    <label for="loginid">loginid</label>
+    <input type="loginid" id="loginidId" name="loginid" value=<?php echo $_GET["loginid"]?>><br>
+    <label for="password">password</label>
+    <input type="text" id="passwordId" name="password" value=<?php echo $_GET["password"]?>><br>
+    <input type="hidden" name="idresearcher" value=<?php echo $_GET["idresearcher"]?> />
+    <input type="submit" value="submit">
+    
+  </form>
+
+</body>
+
+</html>

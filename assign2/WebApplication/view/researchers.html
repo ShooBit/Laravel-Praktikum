@@ -1,0 +1,43 @@
+<?php
+include "../model/database_connection.php";
+
+$sql = "SELECT * FROM sundb.researcher;";
+
+// run sql syntax and get information 
+$data = $conn->query($sql);
+$conn->close();
+//echo $data
+?>
+<html>
+  <head></head>
+  <body>
+    <h1>researcher Data</h1>
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>loginId</th>
+        <th>Password</th>
+        <th>Update</th>
+        <th>Delete</th>
+      </tr>
+      <?php if($data->num_rows > 0){ 
+        while($row = $data->fetch_assoc()){
+        ?>
+        <tr>
+          <td><?php echo $row["name"]; ?></td>
+          <td><?php echo $row["loginid"]; ?></td>
+          <td><?php echo $row["password"]; ?></td>
+          <td><a href=<?php echo $GLOBALS["webAddress"]."/update_researcher?idresearcher=".$row["idresearcher"]."&name=".$row["name"]."&password=".$row["password"]."&loginid=".$row["loginid"];?>           
+            >Update</a></td>
+          <td><a href=<?php echo $GLOBALS["webAddress"]."/delete_researcher?idresearcher=".$row["idresearcher"];?>           
+            >Delete</a></td>
+        </tr>
+        <?php } 
+      } ?>
+    </table>
+    <a href=<?php echo $GLOBALS["webAddress"]."/new_researcher";?>>New Researcher</a>
+  </body>
+</html>
+<?php
+$conn->close();
+?>

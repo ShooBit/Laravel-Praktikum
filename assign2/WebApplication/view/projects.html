@@ -1,0 +1,43 @@
+<?php
+include "../model/database_connection.php";
+
+$sql = "SELECT * FROM sundb.project;";
+
+// run sql syntax and get information 
+$data = $conn->query($sql);
+$conn->close();
+//echo $data
+?>
+<html>
+  <head></head>
+  <body>
+    <h1>Project Data</h1>
+    <table>
+      <tr>
+        <th>ProjectTitle</th>
+        <th>Date</th>
+        <th>Description</th>
+        <th <?php if (!$_SESSION["root"]){echo "hidden";}?>>Update</th>
+        <th <?php if (!$_SESSION["root"]){echo "hidden";}?>>Delete</th>
+      </tr>
+      <?php if($data->num_rows > 0){ 
+        while($row = $data->fetch_assoc()){
+        ?>
+        <tr>
+          <td><?php echo $row["title"]; ?></td>
+          <td><?php echo $row["date"]; ?></td>
+          <td><?php echo $row["description"]; ?></td>
+          <td <?php if (!$_SESSION["root"]){echo "hidden";}?>><a href=<?php echo $GLOBALS["webAddress"]."/update_project?idproject=".$row["idproject"]."&title=".$row["title"]."&date=".$row["date"]."&description=".$row["description"];?>           
+            >Update</a></td>
+          <td <?php if (!$_SESSION["root"]){echo "hidden";}?>><a href=<?php echo $GLOBALS["webAddress"]."/delete_project?idproject=".$row["idproject"];?>           
+            >Delete</a></td>
+        </tr>
+        <?php } 
+      } ?>
+    </table>
+    <a href=<?php echo $GLOBALS["webAddress"]."/new_project";?>>New Project</a>
+  </body>
+</html>
+<?php
+$conn->close();
+?>
