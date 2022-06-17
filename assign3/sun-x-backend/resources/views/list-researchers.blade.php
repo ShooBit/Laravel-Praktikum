@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Laravel 8 Form Example Tutorial</title>
+    <title>List Researchers</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
@@ -45,5 +45,7 @@
 </table>  
 </div>
 <a type="button" class="btn btn-primary" href="{{ route('add-researcher') }}">Add Researcher</a>
+<a type="button" class="btn btn-primary" href="{{ route('list-projects') }}">List Projects</a>
+<a type="button" class="btn btn-primary" href="{{ route('logout') }}">Logout</a>
 </body>
 </html>
